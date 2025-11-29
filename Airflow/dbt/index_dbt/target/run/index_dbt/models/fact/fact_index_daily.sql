@@ -8,7 +8,7 @@ create or replace transient table FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.fact
     
     as (
 
--- 先从 stg_index_daily 拿到干净日线数据，并算前一日收盘价
+-- Start with clean daily data from stg_index_daily and compute prior close
 with base as (
 
     select
@@ -26,7 +26,7 @@ with base as (
     from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.stg_index_daily s
 ),
 
--- 在 base 的基础上计算日收益和滚动指标
+-- Compute daily returns and rolling metrics based on base
 returns as (
 
     select
@@ -36,7 +36,7 @@ returns as (
             else (close / prev_close) - 1
         end as daily_return,
 
-        -- 对数累计收益（先累积 log(1+r)，后面再 exp 回来）
+        -- Log cumulative return (accumulate log(1+r), then exp back later)
         sum(
             ln(
                 1 + case
@@ -49,7 +49,7 @@ returns as (
             order by trade_date
         ) as log_cumret,
 
-        -- 20 日滚动平均收益
+        -- 20-day rolling average return
         avg(
             case 
                 when prev_close is null or prev_close = 0 then 0
@@ -61,7 +61,7 @@ returns as (
             rows between 19 preceding and current row
         ) as rolling_20d_avg_return,
 
-        -- 20 日滚动波动率（标准差）
+        -- 20-day rolling volatility (standard deviation)
         stddev_samp(
             case 
                 when prev_close is null or prev_close = 0 then 0
@@ -84,11 +84,11 @@ select
     r.volume, r.amount,
 
     r.daily_return,
-    exp(r.log_cumret) - 1 as cumulative_return,   -- 把 log 累计收益转回普通累计收益
+    exp(r.log_cumret) - 1 as cumulative_return,   -- Convert log cumulative return back to normal cumulative return
     r.rolling_20d_avg_return,
     r.rolling_20d_vol,
 
-    -- 连接日期维度，补充 year / month / weekday
+    -- Join to the date dimension to add year / month / weekday
     d.year,
     d.month,
     d.quarter,

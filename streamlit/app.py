@@ -5,7 +5,7 @@ import snowflake.connector
 import pandas as pd
 import numpy as np
 
-# 页面基础配置（标题 / 图标 / 宽屏）
+# Basic page configuration (title / icon / wide layout)
 st.set_page_config(
     page_title="China Index Analytics Dashboard",
     page_icon="📈",
@@ -13,34 +13,34 @@ st.set_page_config(
 )
 
 
-# 一些全局样式美化：背景、Tab 样式、subtitle 等
+# Global styling tweaks: background, tabs, subtitle, etc.
 def apply_page_style():
     st.markdown(
         """
         <style>
-        /* 主背景与文字颜色 */
+        /* Main background and text color */
         .main {
             background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000000 100%);
             color: #e5e7eb;
         }
 
-        /* 顶部默认 header 去掉底色 */
+        /* Remove the default header background */
         header[data-testid="stHeader"] {
             background: rgba(0,0,0,0);
         }
 
-        /* 内容整体内边距稍微紧凑一些 */
+        /* Slightly tighter padding for the main content */
         .block-container {
             padding-top: 1.2rem;
             padding-bottom: 2rem;
         }
 
-        /* 标题 */
+        /* Title */
         h1 {
             font-weight: 700;
         }
 
-        /* 副标题文案 */
+        /* Subtitle text */
         .subtitle {
             font-size: 0.95rem;
             color: #9ca3af;
@@ -54,7 +54,7 @@ def apply_page_style():
             margin-bottom: 0.2rem;
         }
 
-        /* 小 pill 样式，用来展示选中的指数 */
+        /* Small pill style for displaying selected indices */
         .pill {
             display: inline-flex;
             align-items: center;
@@ -67,7 +67,7 @@ def apply_page_style():
             background: rgba(15,23,42,0.85);
         }
 
-        /* Tabs 样式美化 */
+        /* Tabs style refinement */
         .stTabs [role="tablist"] {
             gap: 0.5rem;
         }
@@ -84,12 +84,12 @@ def apply_page_style():
             border-color: transparent;
         }
 
-        /* Sidebar 背景 */
+        /* Sidebar background */
         section[data-testid="stSidebar"] {
             background: linear-gradient(180deg,#020617,#030712);
         }
 
-        /* Sidebar 标题 */
+        /* Sidebar titles */
         section[data-testid="stSidebar"] h2,
         section[data-testid="stSidebar"] h3 {
             color: #e5e7eb;
@@ -101,7 +101,7 @@ def apply_page_style():
     )
 
 
-# 代码 -> 指数名字映射
+# Code -> index name mapping
 INDEX_NAME_MAP = {
     "1000001": "SSE Composite Index",
     "1000032": "SSE Energy",
@@ -121,7 +121,7 @@ INDEX_NAME_MAP = {
 }
 
 
-# ---------- Snowflake 连接 ----------
+# ---------- Snowflake connection ----------
 @st.cache_resource
 def get_connection():
     private_key_path = os.environ.get("SNOWFLAKE_PRIVATE_KEY_PATH")
@@ -147,17 +147,17 @@ def get_connection():
     return conn
 
 
-# ---------- 常用查询 ----------
+# ---------- Common queries ----------
 @st.cache_data
 def load_index_codes(_conn):
-    """从 fact 表里动态读出有哪些指数代码。"""
+    """Dynamically read which index codes exist in the fact table."""
     q = """
         SELECT DISTINCT index_code
         FROM fact_index_daily
         ORDER BY index_code
     """
     df = pd.read_sql(q, _conn)
-    return df["INDEX_CODE"].tolist()  # Snowflake 默认大写列名
+    return df["INDEX_CODE"].tolist()  # Snowflake defaults to uppercase column names
 
 
 @st.cache_data
@@ -167,7 +167,7 @@ def load_fact_index(_conn, index_codes, start_date, end_date):
     start_str = pd.to_datetime(start_date).strftime("%Y-%m-%d")
     end_str = pd.to_datetime(end_date).strftime("%Y-%m-%d")
 
-    # 这里只选 Snowflake 表里真实存在的列
+    # Only select columns that actually exist in the Snowflake table
     query = f"""
         SELECT
             trade_date,
@@ -183,22 +183,22 @@ def load_fact_index(_conn, index_codes, start_date, end_date):
     """
     df = pd.read_sql(query, _conn)
 
-    # 列名统一成小写
+    # Normalize column names to lowercase
     df.columns = [c.lower() for c in df.columns]
     df["trade_date"] = pd.to_datetime(df["trade_date"])
 
-    # ===== 在 pandas 里自己算指标 =====
-    # 按 index_code + 日期排序
+    # ===== Calculate metrics in pandas =====
+    # Sort by index_code + date
     df = df.sort_values(["index_code", "trade_date"])
 
-    # 每日收益率：当日收盘 / 昨日收盘 - 1
+    # Daily return: close_today / close_yesterday - 1
     df["daily_return"] = (
         df.groupby("index_code")["close"]
         .pct_change()
         .fillna(0.0)
     )
 
-    # 累计收益：(1 + r) 连乘 - 1
+    # Cumulative return: product of (1 + r) - 1
     df["cumulative_return"] = (
         (1 + df["daily_return"])
         .groupby(df["index_code"])
@@ -206,14 +206,14 @@ def load_fact_index(_conn, index_codes, start_date, end_date):
         - 1
     )
 
-    # 最大回撤：从历史高点往下跌多少
+    # Maximum drawdown: drop from historical peak
     df["cum_max"] = (
         df.groupby("index_code")["cumulative_return"]
         .cummax()
     )
     df["drawdown"] = df["cumulative_return"] / df["cum_max"] - 1
 
-    # 20日滚动波动率
+    # 20-day rolling volatility
     df["rolling_20d_vol"] = (
         df.groupby("index_code")["daily_return"]
         .rolling(20)
@@ -221,7 +221,7 @@ def load_fact_index(_conn, index_codes, start_date, end_date):
         .reset_index(level=0, drop=True)
     )
 
-    # 20日滚动平均收益率（目前没画，用得上就留着）
+    # 20-day rolling average return (kept for potential use)
     df["rolling_20d_avg_return"] = (
         df.groupby("index_code")["daily_return"]
         .rolling(20)
@@ -229,24 +229,24 @@ def load_fact_index(_conn, index_codes, start_date, end_date):
         .reset_index(level=0, drop=True)
     )
 
-    # 代码 -> 名字
+    # Code -> name
     def code_to_name(code: str) -> str:
         code_str = str(code)
         return INDEX_NAME_MAP.get(code_str, code_str)
 
     df["index_name"] = df["index_code"].astype(str).map(code_to_name)
 
-    # 图里用名字做 legend
+    # Use names for chart legends
     df["index_label"] = df["index_name"]
 
     return df
 
 
-# ---------- 主应用 ----------
+# ---------- Main app ----------
 def main():
     apply_page_style()
 
-    # 顶部标题区
+    # Top title area
     st.title("China Index Analytics Dashboard")
     st.markdown(
         """
@@ -264,26 +264,26 @@ def main():
 
     conn = get_connection()
 
-    # 动态读取指数列表
+    # Dynamically read index list
     all_indices = load_index_codes(conn)
     if not all_indices:
-        st.error("fact_index_daily 中没有任何 index_code，请先确认 dbt 是否成功写表。")
+        st.error("No index_code found in fact_index_daily. Please ensure dbt has written the table successfully.")
         return
 
     # Sidebar filters
     st.sidebar.header("📊 Dashboard Filters")
 
     st.sidebar.markdown("### Index Selection")
-    # 在侧边栏显示“代码 - 名字”
+    # Show "code - name" in the sidebar
     selected_indices = st.sidebar.multiselect(
         "Select index",
         all_indices,
-        default=all_indices[:2],  # 默认选前两个
+        default=all_indices[:2],  # Default to the first two
         format_func=lambda code: f"{code} - {INDEX_NAME_MAP.get(str(code), '')}",
     )
 
     st.sidebar.markdown("### Date Range")
-    # 数据范围：2019–2023
+    # Data range: 2019–2023
     start_date = st.sidebar.date_input(
         "Start date",
         value=pd.to_datetime("2019-01-01")
@@ -308,10 +308,10 @@ def main():
         st.warning("No data for selected filters.")
         return
 
-    # 再统一一次列名（保险）
+    # Normalize column names again (just in case)
     df.columns = [c.lower() for c in df.columns]
 
-    # 当前选中指数在主区域用 pill 展示一下
+    # Display selected indices as pills in the main area
     with st.container():
         st.markdown("**Selected indices**")
         pills_html = ""
@@ -320,7 +320,7 @@ def main():
             pills_html += f"<span class='pill'>📈 {name}</span>"
         st.markdown(pills_html, unsafe_allow_html=True)
 
-    st.markdown("")  # 一点间距
+    st.markdown("")  # Small spacer
 
     tab1, tab2 = st.tabs(["Performance & Drawdown", "Volatility & Seasonality"])
 
@@ -331,7 +331,7 @@ def main():
         show_volatility_tab(df)
 
 
-# ---------- Tab 1：表现 & 累计收益 ----------
+# ---------- Tab 1: Performance & Cumulative Return ----------
 def show_performance_tab(df: pd.DataFrame):
     st.markdown(
         "##### 📈 Overall Index Performance"
@@ -351,15 +351,15 @@ def show_performance_tab(df: pd.DataFrame):
     st.caption("Drawdown = Current cumulative return vs. historical peak (per index).")
 
 
-# ---------- Tab 2：波动率 & 极端日 & 季节性 ----------
+# ---------- Tab 2: Volatility, Extreme Days & Seasonality ----------
 def show_volatility_tab(df: pd.DataFrame):
-    # 1) 20 日滚动波动率：calm vs turbulent
+    # 1) 20-day rolling volatility: calm vs. turbulent
     st.markdown("##### 🌪 20-day Rolling Volatility")
     st.caption("Standard deviation of daily returns over a 20-day rolling window.")
     vol_pivot = df.pivot(index="trade_date", columns="index_label", values="rolling_20d_vol")
     st.line_chart(vol_pivot)
 
-    # 2) Top 10 大涨 / 大跌日（上下两张表）
+    # 2) Top 10 up / down days (two tables)
     st.markdown("##### 🔝 Top 10 Up & Down Days")
 
     top_up = df.sort_values("daily_return", ascending=False).head(10)
@@ -406,7 +406,7 @@ def show_volatility_tab(df: pd.DataFrame):
         use_container_width=True,
     )
 
-    # 3) 日收益率分布 —— 横坐标按数值从负到正
+    # 3) Distribution of daily returns — x-axis ordered from negative to positive
     st.markdown("##### 📊 Distribution of Daily Returns")
 
     returns_pct = df["daily_return"] * 100
@@ -421,7 +421,7 @@ def show_volatility_tab(df: pd.DataFrame):
                 "count": counts,
             }
         )
-        .sort_values("return_bin")  # 从最小负值到最大正值
+        .sort_values("return_bin")  # From the smallest negative to the largest positive
         .set_index("return_bin")
     )
     st.bar_chart(hist_df)

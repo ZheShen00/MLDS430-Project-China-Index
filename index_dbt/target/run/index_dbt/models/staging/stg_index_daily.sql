@@ -11,13 +11,13 @@ create or replace transient table FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.stg_
 with raw as (
 
     select
-        -- date 列是 20190102 这种整数，先转成字符串再转 DATE
+        -- The date column is an integer like 20190102; cast to string then to DATE
         to_date(to_char("DATE"), 'YYYYMMDD') as trade_date,
 
-        -- table_name 是指数ID（1000001等），统一转成字符串 index_code
+        -- table_name stores index IDs (1000001 etc.); cast to string index_code
         cast(table_name as varchar) as index_code,
 
-        -- 映射价格和成交量相关字段
+        -- Map price and volume related fields
         cast(o as float) as open,
         cast(h as float) as high,
         cast(l as float) as low,
@@ -27,7 +27,7 @@ with raw as (
 
     from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.INDEX_DAILY_2019_2023_FILTERED
 
-    -- 如果你想只保留部分指数，可以在这里加 where table_name in (...)
+    -- To keep only certain indices, add a filter like where table_name in (...)
     -- where table_name in (1000001, 2399001, 2399006, ...)
 
 )
@@ -38,10 +38,10 @@ select
     open, high, low, close,
     volume, amount,
 
-    -- 用 trade_date 生成日期键
+    -- Generate date_key from trade_date
     to_number(to_char(trade_date, 'YYYYMMDD')) as date_key,
 
-    -- 生成一个唯一键，方便建 unique test
+    -- Build a unique key to support the unique test
     index_code || '_' || to_char(trade_date, 'YYYYMMDD') as unique_key
 
 from raw

@@ -10,7 +10,7 @@ create or replace transient table FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.dim_
 
 with dates as (
 
-    -- 从 2019-01-01 开始生成大约 6 年的日期（足够覆盖 2019-2023）
+    -- Generate roughly 6 years of dates starting from 2019-01-01 (covers 2019-2023)
     select
         dateadd(
             day,
@@ -22,7 +22,7 @@ with dates as (
 )
 
 select
-    -- 和 stg_index_daily 里的 date_key 规则保持一致
+    -- Keep the date_key rule consistent with stg_index_daily
     to_number(to_char(full_date, 'YYYYMMDD')) as date_key,
     full_date,
 

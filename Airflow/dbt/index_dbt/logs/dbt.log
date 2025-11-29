@@ -145,13 +145,13 @@ Compilation Error
 with raw as (
 
     select
-        -- date 列是 20190102 这种整数，先转成字符串再转 DATE
+        -- The date column is an integer like 20190102; cast to string then to DATE
         to_date(to_char("date"), 'YYYYMMDD') as trade_date,
 
-        -- table_name 是指数ID（1000001等），统一转成字符串 index_code
+        -- table_name stores index IDs (1000001 etc.); cast to string index_code
         cast(table_name as varchar) as index_code,
 
-        -- 映射价格和成交量相关字段
+        -- Map price and volume related fields
         cast(o as float) as open,
         cast(h as float) as high,
         cast(l as float) as low,
@@ -161,7 +161,7 @@ with raw as (
 
     from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.INDEX_DAILY_2019_2023_FILTERED
 
-    -- 如果你想只保留部分指数，可以在这里加 where table_name in (...)
+    -- To keep only certain indices, add a filter like where table_name in (...)
     -- where table_name in (1000001, 2399001, 2399006, ...)
 
 )
@@ -172,10 +172,10 @@ select
     open, high, low, close,
     volume, amount,
 
-    -- 用 trade_date 生成日期键
+    -- Generate date_key from trade_date
     to_number(to_char(trade_date, 'YYYYMMDD')) as date_key,
 
-    -- 生成一个唯一键，方便建 unique test
+    -- Build a unique key to support the unique test
     index_code || '_' || to_char(trade_date, 'YYYYMMDD') as unique_key
 
 from raw
@@ -188,7 +188,7 @@ from raw
 
 with dates as (
 
-    -- 从 2019-01-01 开始生成大约 6 年的日期（足够覆盖 2019-2023）
+    -- Generate roughly 6 years of dates starting from 2019-01-01 (covers 2019-2023)
     select
         dateadd(
             day,
@@ -200,7 +200,7 @@ with dates as (
 )
 
 select
-    -- 和 stg_index_daily 里的 date_key 规则保持一致
+    -- Keep the date_key rule consistent with stg_index_daily
     to_number(to_char(full_date, 'YYYYMMDD')) as date_key,
     full_date,
 
@@ -351,7 +351,7 @@ syntax error line 44 at position 152 unexpected ';'.
 
 with dates as (
 
-    -- 从 2019-01-01 开始生成大约 6 年的日期（足够覆盖 2019-2023）
+    -- Generate roughly 6 years of dates starting from 2019-01-01 (covers 2019-2023)
     select
         dateadd(
             day,
@@ -363,7 +363,7 @@ with dates as (
 )
 
 select
-    -- 和 stg_index_daily 里的 date_key 规则保持一致
+    -- Keep the date_key rule consistent with stg_index_daily
     to_number(to_char(full_date, 'YYYYMMDD')) as date_key,
     full_date,
 
@@ -389,13 +389,13 @@ from dates
 with raw as (
 
     select
-        -- date 列是 20190102 这种整数，先转成字符串再转 DATE
+        -- The date column is an integer like 20190102; cast to string then to DATE
         to_date(to_char("date"), 'YYYYMMDD') as trade_date,
 
-        -- table_name 是指数ID（1000001等），统一转成字符串 index_code
+        -- table_name stores index IDs (1000001 etc.); cast to string index_code
         cast(table_name as varchar) as index_code,
 
-        -- 映射价格和成交量相关字段
+        -- Map price and volume related fields
         cast(o as float) as open,
         cast(h as float) as high,
         cast(l as float) as low,
@@ -405,7 +405,7 @@ with raw as (
 
     from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.INDEX_DAILY_2019_2023_FILTERED
 
-    -- 如果你想只保留部分指数，可以在这里加 where table_name in (...)
+    -- To keep only certain indices, add a filter like where table_name in (...)
     -- where table_name in (1000001, 2399001, 2399006, ...)
 
 )
@@ -416,10 +416,10 @@ select
     open, high, low, close,
     volume, amount,
 
-    -- 用 trade_date 生成日期键
+    -- Generate date_key from trade_date
     to_number(to_char(trade_date, 'YYYYMMDD')) as date_key,
 
-    -- 生成一个唯一键，方便建 unique test
+    -- Build a unique key to support the unique test
     index_code || '_' || to_char(trade_date, 'YYYYMMDD') as unique_key
 
 from raw
@@ -543,7 +543,7 @@ syntax error line 44 at position 152 unexpected ';'.
 
 with dates as (
 
-    -- 从 2019-01-01 开始生成大约 6 年的日期（足够覆盖 2019-2023）
+    -- Generate roughly 6 years of dates starting from 2019-01-01 (covers 2019-2023)
     select
         dateadd(
             day,
@@ -555,7 +555,7 @@ with dates as (
 )
 
 select
-    -- 和 stg_index_daily 里的 date_key 规则保持一致
+    -- Keep the date_key rule consistent with stg_index_daily
     to_number(to_char(full_date, 'YYYYMMDD')) as date_key,
     full_date,
 
@@ -579,13 +579,13 @@ from dates
 with raw as (
 
     select
-        -- date 列是 20190102 这种整数，先转成字符串再转 DATE
+        -- The date column is an integer like 20190102; cast to string then to DATE
         to_date(to_char("date"), 'YYYYMMDD') as trade_date,
 
-        -- table_name 是指数ID（1000001等），统一转成字符串 index_code
+        -- table_name stores index IDs (1000001 etc.); cast to string index_code
         cast(table_name as varchar) as index_code,
 
-        -- 映射价格和成交量相关字段
+        -- Map price and volume related fields
         cast(o as float) as open,
         cast(h as float) as high,
         cast(l as float) as low,
@@ -595,7 +595,7 @@ with raw as (
 
     from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.INDEX_DAILY_2019_2023_FILTERED
 
-    -- 如果你想只保留部分指数，可以在这里加 where table_name in (...)
+    -- To keep only certain indices, add a filter like where table_name in (...)
     -- where table_name in (1000001, 2399001, 2399006, ...)
 
 )
@@ -606,10 +606,10 @@ select
     open, high, low, close,
     volume, amount,
 
-    -- 用 trade_date 生成日期键
+    -- Generate date_key from trade_date
     to_number(to_char(trade_date, 'YYYYMMDD')) as date_key,
 
-    -- 生成一个唯一键，方便建 unique test
+    -- Build a unique key to support the unique test
     index_code || '_' || to_char(trade_date, 'YYYYMMDD') as unique_key
 
 from raw
@@ -736,7 +736,7 @@ invalid identifier '"date"'
 
 with dates as (
 
-    -- 从 2019-01-01 开始生成大约 6 年的日期（足够覆盖 2019-2023）
+    -- Generate roughly 6 years of dates starting from 2019-01-01 (covers 2019-2023)
     select
         dateadd(
             day,
@@ -748,7 +748,7 @@ with dates as (
 )
 
 select
-    -- 和 stg_index_daily 里的 date_key 规则保持一致
+    -- Keep the date_key rule consistent with stg_index_daily
     to_number(to_char(full_date, 'YYYYMMDD')) as date_key,
     full_date,
 
@@ -772,13 +772,13 @@ from dates
 with raw as (
 
     select
-        -- date 列是 20190102 这种整数，先转成字符串再转 DATE
+        -- The date column is an integer like 20190102; cast to string then to DATE
         to_date(to_char("DATE"), 'YYYYMMDD') as trade_date,
 
-        -- table_name 是指数ID（1000001等），统一转成字符串 index_code
+        -- table_name stores index IDs (1000001 etc.); cast to string index_code
         cast(table_name as varchar) as index_code,
 
-        -- 映射价格和成交量相关字段
+        -- Map price and volume related fields
         cast(o as float) as open,
         cast(h as float) as high,
         cast(l as float) as low,
@@ -788,7 +788,7 @@ with raw as (
 
     from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.INDEX_DAILY_2019_2023_FILTERED
 
-    -- 如果你想只保留部分指数，可以在这里加 where table_name in (...)
+    -- To keep only certain indices, add a filter like where table_name in (...)
     -- where table_name in (1000001, 2399001, 2399006, ...)
 
 )
@@ -799,10 +799,10 @@ select
     open, high, low, close,
     volume, amount,
 
-    -- 用 trade_date 生成日期键
+    -- Generate date_key from trade_date
     to_number(to_char(trade_date, 'YYYYMMDD')) as date_key,
 
-    -- 生成一个唯一键，方便建 unique test
+    -- Build a unique key to support the unique test
     index_code || '_' || to_char(trade_date, 'YYYYMMDD') as unique_key
 
 from raw
@@ -833,7 +833,7 @@ from raw
     
     as (
 
--- 先从 stg_index_daily 拿到干净日线数据，并算前一日收盘价
+-- Start with clean daily data from stg_index_daily and compute prior close
 with base as (
 
     select
@@ -851,7 +851,7 @@ with base as (
     from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.stg_index_daily s
 ),
 
--- 在 base 的基础上计算日收益和滚动指标
+-- Compute daily returns and rolling metrics based on base
 returns as (
 
     select
@@ -861,7 +861,7 @@ returns as (
             else (close / prev_close) - 1
         end as daily_return,
 
-        -- 对数累计收益（先累积 log(1+r)，后面再 exp 回来）
+        -- Log cumulative return (accumulate log(1+r), then exp back later)
         sum(
             ln(
                 1 + case
@@ -874,7 +874,7 @@ returns as (
             order by trade_date
         ) as log_cumret,
 
-        -- 20 日滚动平均收益
+        -- 20-day rolling average return
         avg(
             case 
                 when prev_close is null or prev_close = 0 then 0
@@ -886,7 +886,7 @@ returns as (
             rows between 19 preceding and current row
         ) as rolling_20d_avg_return,
 
-        -- 20 日滚动波动率（标准差）
+        -- 20-day rolling volatility (standard deviation)
         stddev_samp(
             case 
                 when prev_close is null or prev_close = 0 then 0
@@ -909,11 +909,11 @@ select
     r.volume, r.amount,
 
     r.daily_return,
-    exp(r.log_cumret) - 1 as cumulative_return,   -- 把 log 累计收益转回普通累计收益
+    exp(r.log_cumret) - 1 as cumulative_return,   -- Convert log cumulative return back to normal cumulative return
     r.rolling_20d_avg_return,
     r.rolling_20d_vol,
 
-    -- 连接日期维度，补充 year / month / weekday
+    -- Join to the date dimension to add year / month / weekday
     d.year,
     d.month,
     d.quarter,

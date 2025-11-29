@@ -6,14 +6,14 @@ from dags.index_pipeline_dag import dag, trigger_fivetran_sync
 
 def test_dag_basic_properties():
     """
-    基础检查：
-    - dag_id 正确
-    - task 数量和名字正确
-    - 依赖关系：sync_fivetran >> dbt_run >> dbt_test
+    Basic checks:
+    - dag_id is correct
+    - the task count and names are correct
+    - dependency order: sync_fivetran >> dbt_run >> dbt_test
     """
     assert dag.dag_id == "index_etl_pipeline"
 
-    # 有三个 task
+    # There should be three tasks
     expected_task_ids = {"sync_fivetran", "dbt_run", "dbt_test"}
     assert set(dag.task_ids) == expected_task_ids
 
@@ -21,37 +21,37 @@ def test_dag_basic_properties():
     dbt_run = dag.get_task("dbt_run")
     dbt_test = dag.get_task("dbt_test")
 
-    # 依赖关系检查
+    # Dependency check
     assert dbt_run in sync_fivetran.downstream_list
     assert dbt_test in dbt_run.downstream_list
 
 
 def test_trigger_fivetran_skip_when_no_env(monkeypatch):
     """
-    没有配置环境变量时，函数应该直接返回，不抛异常。
+    When env vars are missing, the function should simply return without raising.
     """
-    # 确保相关 env 都被清掉
+    # Ensure related env vars are cleared
     monkeypatch.delenv("FIVETRAN_API_KEY", raising=False)
     monkeypatch.delenv("FIVETRAN_API_SECRET", raising=False)
     monkeypatch.delenv("FIVETRAN_CONNECTOR_ID", raising=False)
 
-    # 只要不抛异常就算通过
+    # Passing as long as no exception is raised
     trigger_fivetran_sync()
 
 
 def test_trigger_fivetran_with_env_calls_api(monkeypatch):
     """
-    配置了环境变量时：
-    - 应该调用 requests.post 一次
-    - URL 中包含 connector_id
-    - 使用 (api_key, api_secret) 做 auth
+    With env vars configured:
+    - requests.post should be called once
+    - the URL should contain connector_id
+    - auth should use (api_key, api_secret)
     """
-    # 设置假的环境变量
+    # Set fake environment variables
     monkeypatch.setenv("FIVETRAN_API_KEY", "dummy_key")
     monkeypatch.setenv("FIVETRAN_API_SECRET", "dummy_secret")
     monkeypatch.setenv("FIVETRAN_CONNECTOR_ID", "dummy_connector")
 
-    # mock 掉 requests.post，避免真的调用 Fivetran
+    # Mock requests.post to avoid a real call to Fivetran
     from dags.index_pipeline_dag import requests as requests_module
 
     mock_resp = MagicMock()
@@ -61,10 +61,10 @@ def test_trigger_fivetran_with_env_calls_api(monkeypatch):
     mock_post = MagicMock(return_value=mock_resp)
     monkeypatch.setattr(requests_module, "post", mock_post)
 
-    # 调用被测函数
+    # Call the function under test
     trigger_fivetran_sync()
 
-    # 验证 post 被正确调用了一次
+    # Verify post was called once correctly
     mock_post.assert_called_once()
     called_url, called_kwargs = mock_post.call_args
     url = called_url[0]

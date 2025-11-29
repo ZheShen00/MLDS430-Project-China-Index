@@ -1,3 +1,5 @@
+import os
+
 import streamlit as st
 import snowflake.connector
 import pandas as pd
@@ -122,8 +124,15 @@ INDEX_NAME_MAP = {
 # ---------- Snowflake 连接 ----------
 @st.cache_resource
 def get_connection():
-    private_key_path = "keys/rsa_key.p8"
-    private_key_passphrase = "MLDS430HW2"
+    private_key_path = os.environ.get("SNOWFLAKE_PRIVATE_KEY_PATH")
+    private_key_passphrase = os.environ.get("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE")
+    if not private_key_path or not private_key_passphrase:
+        raise ValueError(
+            "Missing Snowflake private key configuration. Please set the"
+            " SNOWFLAKE_PRIVATE_KEY_PATH and SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"
+            " environment variables."
+        )
+
     conn = snowflake.connector.connect(
         user="KOALA",
         authenticator="SNOWFLAKE_JWT",

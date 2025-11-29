@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: index_raw
+    database: FIVETRAN_DATABASE
+    schema: MLDS430_KOALA_INDEX_RAW
+    tables:
+      - name: INDEX_DAILY_2019_2023_FILTERED

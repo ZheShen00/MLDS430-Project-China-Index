@@ -1,0 +1,16 @@
+mlds_430_snowflake:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "azb79167"
+      user: "KOALA"
+      role: "FIVETRAN_ROLE"
+      database: "FIVETRAN_DATABASE"
+      warehouse: "FIVETRAN_WAREHOUSE"
+      schema: "MLDS430_KOALA_INDEX_RAW"
+      threads: 4
+      client_session_keep_alive: false
+
+      private_key_path: "C:\\Users\\shenz\\Desktop\\pageviews_sdk\\rsa_key.p8"
+      private_key_passphrase: "MLDS430HW2"

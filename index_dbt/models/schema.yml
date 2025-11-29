@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: stg_index_daily
+    description: "Staging model for daily index data from INDEX_DAILY_2019_2023_FILTERED."
+    columns:
+      - name: unique_key
+        tests:
+          - not_null
+          - unique
+      - name: trade_date
+        tests:
+          - not_null
+      - name: index_code
+        tests:
+          - not_null
+
+  - name: dim_date
+    description: "Date dimension table used to join on date_key."
+    columns:
+      - name: date_key
+        tests:
+          - not_null
+          - unique
+
+  - name: fact_index_daily
+    description: "Fact table with prices, returns and rolling features per index and date."
+    columns:
+      - name: date_key
+        tests:
+          - not_null
+      - name: index_code
+        tests:
+          - not_null

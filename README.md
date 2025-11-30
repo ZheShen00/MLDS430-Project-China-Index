@@ -1,8 +1,10 @@
 # MLDS-490 Project: China Index Data Platform
 
-Professor: Alice Zhao
-Author: Zhe Shen
-Date:11/29/2025
+Professor: Alice Zhao<br>
+Author: Zhe Shen<br>
+Date:11/29/2025<br>
+
+---
 
 This repository contains a small data platform for analyzing Chinese stock indices. It bundles an Airflow orchestration layer, a dbt modeling project on Snowflake, and a Streamlit dashboard for exploration. Sample CSVs are also provided for local experimentation.
 

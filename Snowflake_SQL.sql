@@ -1,3 +1,5 @@
+-- ALL SQL statement under below is used step by step in Snowflake worksheet
+
 -- USE ROLE FIVETRAN_ROLE;
 -- USE DATABASE FIVETRAN_DATABASE;
 -- CREATE SCHEMA IF NOT EXISTS MLDS430_KOALA_INDEX_RAW

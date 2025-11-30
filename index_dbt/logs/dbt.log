@@ -1610,3 +1610,692 @@ KeyboardInterrupt
 [0m18:34:50.657666 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
 [0m18:34:51.318298 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '2b40acb3-f452-4b67-a777-b2ecf25c143b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C5F7A73640>]}
 [0m18:34:51.425136 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '2b40acb3-f452-4b67-a777-b2ecf25c143b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C5F8672440>]}
+[0m21:20:26.329393 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B6F7028C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B70A342E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B70A341C0>]}
+
+
+============================== 21:20:26.336228 | 75d5076d-a366-449a-be47-7d13c8a6c7ce ==============================
+[0m21:20:26.336228 [info ] [MainThread]: Running with dbt=1.10.15
+[0m21:20:26.337205 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'write_json': 'True', 'log_format': 'default', 'use_colors': 'True', 'profiles_dir': '.', 'warn_error': 'None', 'indirect_selection': 'eager', 'partial_parse': 'True', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': 'D:\\MLDS430-Project-China-Index\\index_dbt\\logs', 'use_experimental_parser': 'False', 'version_check': 'True', 'quiet': 'False', 'introspect': 'True', 'empty': 'False', 'log_cache_events': 'False', 'debug': 'False', 'no_print': 'None', 'invocation_command': 'dbt run --profiles-dir .', 'printer_width': '80', 'target_path': 'None'}
+[0m21:20:28.201868 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m21:20:28.202846 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m21:20:28.203822 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m21:20:29.188166 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '75d5076d-a366-449a-be47-7d13c8a6c7ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B11811B70>]}
+[0m21:20:29.283931 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '75d5076d-a366-449a-be47-7d13c8a6c7ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B118E6920>]}
+[0m21:20:29.285883 [info ] [MainThread]: Registered adapter: snowflake=1.10.3
+[0m21:20:30.249599 [debug] [MainThread]: checksum: 14a228079bd6df63ba81633f9a3cf44ecfaa31056ac397c602753ec895dbf885, vars: {}, profile: , target: , version: 1.10.15
+[0m21:20:30.525521 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 3 files changed.
+[0m21:20:30.526498 [debug] [MainThread]: Partial parsing: updated file: index_dbt://models\fact\fact_index_daily.sql
+[0m21:20:30.527475 [debug] [MainThread]: Partial parsing: updated file: index_dbt://models\dim\dim_date.sql
+[0m21:20:30.528452 [debug] [MainThread]: Partial parsing: updated file: index_dbt://models\staging\stg_index_daily.sql
+[0m21:20:31.157665 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '75d5076d-a366-449a-be47-7d13c8a6c7ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B13180130>]}
+[0m21:20:31.364022 [debug] [MainThread]: Wrote artifact WritableManifest to D:\MLDS430-Project-China-Index\index_dbt\target\manifest.json
+[0m21:20:31.367931 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\MLDS430-Project-China-Index\index_dbt\target\semantic_manifest.json
+[0m21:20:31.417727 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '75d5076d-a366-449a-be47-7d13c8a6c7ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B131617B0>]}
+[0m21:20:31.418705 [info ] [MainThread]: Found 3 models, 8 data tests, 1 source, 494 macros
+[0m21:20:31.419681 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '75d5076d-a366-449a-be47-7d13c8a6c7ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B13161060>]}
+[0m21:20:31.421635 [info ] [MainThread]: 
+[0m21:20:31.422611 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m21:20:31.422611 [info ] [MainThread]: 
+[0m21:20:31.423587 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m21:20:31.430422 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_FIVETRAN_DATABASE'
+[0m21:20:31.712631 [debug] [ThreadPool]: Using snowflake connection "list_FIVETRAN_DATABASE"
+[0m21:20:31.713605 [debug] [ThreadPool]: On list_FIVETRAN_DATABASE: show terse schemas in database FIVETRAN_DATABASE
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "connection_name": "list_FIVETRAN_DATABASE"} */
+[0m21:20:31.713605 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:20:31.722395 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: show terse schemas in database FIVETRAN_DATABASE
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "connection_name": "list_FIVETRAN_DATABASE"} */
+[0m21:20:31.722395 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m21:20:31.723369 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_schemas
+[0m21:20:31.724347 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m21:20:31.725322 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:20:31.726302 [debug] [MainThread]: Connection 'list_FIVETRAN_DATABASE' was left open.
+[0m21:20:31.726302 [debug] [MainThread]: On list_FIVETRAN_DATABASE: No close available on handle
+[0m21:20:31.727276 [info ] [MainThread]: 
+[0m21:20:31.728255 [info ] [MainThread]: Finished running  in 0 hours 0 minutes and 0.30 seconds (0.30s).
+[0m21:20:31.729229 [error] [MainThread]: Encountered an error:
+Runtime Error
+  Database error while listing schemas in database "FIVETRAN_DATABASE"
+  Database Error
+    ('Could not deserialize key data. The data may be in an incorrect format, the provided password may be incorrect, it may be encrypted with an unsupported algorithm, or it may be an unsupported key type (e.g. EC curves with explicit parameters).', [<OpenSSLError(code=478150756, lib=57, reason=100, reason_text=bad decrypt)>, <OpenSSLError(code=293601396, lib=35, reason=116, reason_text=pkcs12 cipherfinal error)>, <OpenSSLError(code=478150756, lib=57, reason=100, reason_text=bad decrypt)>, <OpenSSLError(code=293601396, lib=35, reason=116, reason_text=pkcs12 cipherfinal error)>])
+[0m21:20:31.732161 [debug] [MainThread]: Command `dbt run` failed at 21:20:31.731182 after 5.53 seconds
+[0m21:20:31.732161 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B6F7028C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B13160C10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B12F72FE0>]}
+[0m21:20:31.733136 [debug] [MainThread]: Flushing usage events
+[0m21:20:32.646390 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:22:57.502247 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9AAE72860>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9AC19C340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9AC19C1C0>]}
+
+
+============================== 21:22:57.507132 | 49de65d6-dda3-465e-88b8-bd9da971248b ==============================
+[0m21:22:57.507132 [info ] [MainThread]: Running with dbt=1.10.15
+[0m21:22:57.508105 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'write_json': 'True', 'invocation_command': 'dbt run --profiles-dir .', 'log_format': 'default', 'profiles_dir': '.', 'warn_error': 'None', 'indirect_selection': 'eager', 'partial_parse': 'True', 'log_path': 'D:\\MLDS430-Project-China-Index\\index_dbt\\logs', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'use_experimental_parser': 'False', 'version_check': 'True', 'introspect': 'True', 'quiet': 'False', 'empty': 'False', 'log_cache_events': 'False', 'debug': 'False', 'no_print': 'None', 'use_colors': 'True', 'cache_selected_only': 'False', 'target_path': 'None'}
+[0m21:22:58.667321 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m21:22:58.668296 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m21:22:58.669272 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m21:22:59.313184 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '49de65d6-dda3-465e-88b8-bd9da971248b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9AB286D10>]}
+[0m21:22:59.413153 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '49de65d6-dda3-465e-88b8-bd9da971248b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9CCE1C370>]}
+[0m21:22:59.415107 [info ] [MainThread]: Registered adapter: snowflake=1.10.3
+[0m21:23:00.392453 [debug] [MainThread]: checksum: 14a228079bd6df63ba81633f9a3cf44ecfaa31056ac397c602753ec895dbf885, vars: {}, profile: , target: , version: 1.10.15
+[0m21:23:00.626207 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m21:23:00.627183 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m21:23:00.692725 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '49de65d6-dda3-465e-88b8-bd9da971248b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9CE4AC2B0>]}
+[0m21:23:00.816269 [debug] [MainThread]: Wrote artifact WritableManifest to D:\MLDS430-Project-China-Index\index_dbt\target\manifest.json
+[0m21:23:00.820170 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\MLDS430-Project-China-Index\index_dbt\target\semantic_manifest.json
+[0m21:23:00.850597 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '49de65d6-dda3-465e-88b8-bd9da971248b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9CE4AF2B0>]}
+[0m21:23:00.851570 [info ] [MainThread]: Found 3 models, 8 data tests, 1 source, 494 macros
+[0m21:23:00.851570 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '49de65d6-dda3-465e-88b8-bd9da971248b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9CE4AD240>]}
+[0m21:23:00.854502 [info ] [MainThread]: 
+[0m21:23:00.855477 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m21:23:00.855477 [info ] [MainThread]: 
+[0m21:23:00.857432 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m21:23:00.862877 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_FIVETRAN_DATABASE'
+[0m21:23:01.025642 [debug] [ThreadPool]: Using snowflake connection "list_FIVETRAN_DATABASE"
+[0m21:23:01.026622 [debug] [ThreadPool]: On list_FIVETRAN_DATABASE: show terse schemas in database FIVETRAN_DATABASE
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "connection_name": "list_FIVETRAN_DATABASE"} */
+[0m21:23:01.027433 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:23:06.541084 [debug] [ThreadPool]: SQL status: SUCCESS 1514 in 5.514 seconds
+[0m21:23:08.192889 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_FIVETRAN_DATABASE_MLDS430_KOALA_INDEX_RAW'
+[0m21:23:08.206560 [debug] [ThreadPool]: Using snowflake connection "list_FIVETRAN_DATABASE_MLDS430_KOALA_INDEX_RAW"
+[0m21:23:08.207538 [debug] [ThreadPool]: On list_FIVETRAN_DATABASE_MLDS430_KOALA_INDEX_RAW: show objects in FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "connection_name": "list_FIVETRAN_DATABASE_MLDS430_KOALA_INDEX_RAW"} */;
+[0m21:23:08.208515 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:23:10.177821 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.969 seconds
+[0m21:23:10.180754 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '49de65d6-dda3-465e-88b8-bd9da971248b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9A97F9DB0>]}
+[0m21:23:10.187591 [debug] [Thread-1 (]: Began running node model.index_dbt.dim_date
+[0m21:23:10.187591 [debug] [Thread-2 (]: Began running node model.index_dbt.stg_index_daily
+[0m21:23:10.189543 [info ] [Thread-1 (]: 1 of 3 START sql table model MLDS430_KOALA_INDEX_RAW.dim_date .................. [RUN]
+[0m21:23:10.191493 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.index_dbt.dim_date'
+[0m21:23:10.190518 [info ] [Thread-2 (]: 2 of 3 START sql table model MLDS430_KOALA_INDEX_RAW.stg_index_daily ........... [RUN]
+[0m21:23:10.192469 [debug] [Thread-1 (]: Began compiling node model.index_dbt.dim_date
+[0m21:23:10.192469 [debug] [Thread-2 (]: Acquiring new snowflake connection 'model.index_dbt.stg_index_daily'
+[0m21:23:10.203213 [debug] [Thread-1 (]: Writing injected SQL for node "model.index_dbt.dim_date"
+[0m21:23:10.204190 [debug] [Thread-2 (]: Began compiling node model.index_dbt.stg_index_daily
+[0m21:23:10.208094 [debug] [Thread-2 (]: Writing injected SQL for node "model.index_dbt.stg_index_daily"
+[0m21:23:10.209071 [debug] [Thread-1 (]: Began executing node model.index_dbt.dim_date
+[0m21:23:10.233485 [debug] [Thread-2 (]: Began executing node model.index_dbt.stg_index_daily
+[0m21:23:10.249109 [debug] [Thread-1 (]: Writing runtime sql for node "model.index_dbt.dim_date"
+[0m21:23:10.253015 [debug] [Thread-2 (]: Writing runtime sql for node "model.index_dbt.stg_index_daily"
+[0m21:23:10.255944 [debug] [Thread-1 (]: Using snowflake connection "model.index_dbt.dim_date"
+[0m21:23:10.257894 [debug] [Thread-2 (]: Using snowflake connection "model.index_dbt.stg_index_daily"
+[0m21:23:10.257894 [debug] [Thread-1 (]: On model.index_dbt.dim_date: create or replace transient table FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.dim_date
+    
+    
+    
+    as (
+
+with dates as (
+
+    -- Generate roughly 6 years of dates starting from 2019-01-01 (covers 2019-2023)
+    select
+        dateadd(
+            day,
+            row_number() over (order by 0) - 1,
+            to_date('2019-01-01')
+        ) as full_date
+    from table(generator(rowcount => 365 * 6))
+
+)
+
+select
+    -- Keep the date_key rule consistent with stg_index_daily
+    to_number(to_char(full_date, 'YYYYMMDD')) as date_key,
+    full_date,
+
+    extract(year   from full_date) as year,
+    extract(month  from full_date) as month,
+    extract(day    from full_date) as day,
+    extract(quarter from full_date) as quarter,
+    to_char(full_date, 'DY')       as weekday_short,
+    to_char(full_date, 'DAY')      as weekday_full
+
+from dates
+    )
+
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "node_id": "model.index_dbt.dim_date"} */;
+[0m21:23:10.258874 [debug] [Thread-2 (]: On model.index_dbt.stg_index_daily: create or replace transient table FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.stg_index_daily
+    
+    
+    
+    as (
+
+with raw as (
+
+    select
+        -- The date column is an integer like 20190102; cast to string then to DATE
+        to_date(to_char("DATE"), 'YYYYMMDD') as trade_date,
+
+        -- table_name stores index IDs (1000001 etc.); cast to string index_code
+        cast(table_name as varchar) as index_code,
+
+        -- Map price and volume related fields
+        cast(o as float) as open,
+        cast(h as float) as high,
+        cast(l as float) as low,
+        cast(c as float) as close,
+        cast(v as float) as volume,
+        cast(a as float) as amount
+
+    from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.INDEX_DAILY_2019_2023_FILTERED
+
+    -- To keep only certain indices, add a filter like where table_name in (...)
+    -- where table_name in (1000001, 2399001, 2399006, ...)
+
+)
+
+select
+    trade_date,
+    index_code,
+    open, high, low, close,
+    volume, amount,
+
+    -- Generate date_key from trade_date
+    to_number(to_char(trade_date, 'YYYYMMDD')) as date_key,
+
+    -- Build a unique key to support the unique test
+    index_code || '_' || to_char(trade_date, 'YYYYMMDD') as unique_key
+
+from raw
+    )
+
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "node_id": "model.index_dbt.stg_index_daily"} */;
+[0m21:23:10.259847 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m21:23:10.260827 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m21:23:13.407189 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 3.147 seconds
+[0m21:23:13.434071 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '49de65d6-dda3-465e-88b8-bd9da971248b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9A9D4DB70>]}
+[0m21:23:13.435047 [info ] [Thread-1 (]: 1 of 3 OK created sql table model MLDS430_KOALA_INDEX_RAW.dim_date ............. [[32mSUCCESS 1[0m in 3.24s]
+[0m21:23:13.437000 [debug] [Thread-1 (]: Finished running node model.index_dbt.dim_date
+[0m21:23:13.612770 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 3.352 seconds
+[0m21:23:13.615699 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '49de65d6-dda3-465e-88b8-bd9da971248b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9CEE27A60>]}
+[0m21:23:13.616676 [info ] [Thread-2 (]: 2 of 3 OK created sql table model MLDS430_KOALA_INDEX_RAW.stg_index_daily ...... [[32mSUCCESS 1[0m in 3.42s]
+[0m21:23:13.617655 [debug] [Thread-2 (]: Finished running node model.index_dbt.stg_index_daily
+[0m21:23:13.618632 [debug] [Thread-4 (]: Began running node model.index_dbt.fact_index_daily
+[0m21:23:13.620585 [info ] [Thread-4 (]: 3 of 3 START sql table model MLDS430_KOALA_INDEX_RAW.fact_index_daily .......... [RUN]
+[0m21:23:13.621562 [debug] [Thread-4 (]: Acquiring new snowflake connection 'model.index_dbt.fact_index_daily'
+[0m21:23:13.622541 [debug] [Thread-4 (]: Began compiling node model.index_dbt.fact_index_daily
+[0m21:23:13.626445 [debug] [Thread-4 (]: Writing injected SQL for node "model.index_dbt.fact_index_daily"
+[0m21:23:13.628398 [debug] [Thread-4 (]: Began executing node model.index_dbt.fact_index_daily
+[0m21:23:13.632303 [debug] [Thread-4 (]: Writing runtime sql for node "model.index_dbt.fact_index_daily"
+[0m21:23:13.636226 [debug] [Thread-4 (]: Using snowflake connection "model.index_dbt.fact_index_daily"
+[0m21:23:13.636226 [debug] [Thread-4 (]: On model.index_dbt.fact_index_daily: create or replace transient table FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.fact_index_daily
+    
+    
+    
+    as (
+
+-- Start with clean daily data from stg_index_daily and compute prior close
+with base as (
+
+    select
+        s.date_key,
+        s.trade_date,
+        s.index_code,
+        s.open, s.high, s.low, s.close,
+        s.volume, s.amount,
+
+        lag(s.close) over (
+            partition by s.index_code
+            order by s.trade_date
+        ) as prev_close
+
+    from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.stg_index_daily s
+),
+
+-- Compute daily returns and rolling metrics based on base
+returns as (
+
+    select
+        *,
+        case 
+            when prev_close is null or prev_close = 0 then 0
+            else (close / prev_close) - 1
+        end as daily_return,
+
+        -- Log cumulative return (accumulate log(1+r), then exp back later)
+        sum(
+            ln(
+                1 + case
+                        when prev_close is null or prev_close = 0 then 0
+                        else (close / prev_close) - 1
+                    end
+            )
+        ) over (
+            partition by index_code
+            order by trade_date
+        ) as log_cumret,
+
+        -- 20-day rolling average return
+        avg(
+            case 
+                when prev_close is null or prev_close = 0 then 0
+                else (close / prev_close) - 1
+            end
+        ) over (
+            partition by index_code
+            order by trade_date
+            rows between 19 preceding and current row
+        ) as rolling_20d_avg_return,
+
+        -- 20-day rolling volatility (standard deviation)
+        stddev_samp(
+            case 
+                when prev_close is null or prev_close = 0 then 0
+                else (close / prev_close) - 1
+            end
+        ) over (
+            partition by index_code
+            order by trade_date
+            rows between 19 preceding and current row
+        ) as rolling_20d_vol
+
+    from base
+)
+
+select
+    r.date_key,
+    r.trade_date,
+    r.index_code,
+    r.open, r.high, r.low, r.close,
+    r.volume, r.amount,
+
+    r.daily_return,
+    exp(r.log_cumret) - 1 as cumulative_return,   -- Convert log cumulative return back to normal cumulative return
+    r.rolling_20d_avg_return,
+    r.rolling_20d_vol,
+
+    -- Join to the date dimension to add year / month / weekday
+    d.year,
+    d.month,
+    d.quarter,
+    d.weekday_short,
+    d.weekday_full
+
+from returns r
+left join FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.dim_date d
+  on r.date_key = d.date_key
+    )
+
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "node_id": "model.index_dbt.fact_index_daily"} */;
+[0m21:23:13.637204 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m21:23:16.557541 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 2.921 seconds
+[0m21:23:16.560469 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '49de65d6-dda3-465e-88b8-bd9da971248b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9CED61E40>]}
+[0m21:23:16.561448 [info ] [Thread-4 (]: 3 of 3 OK created sql table model MLDS430_KOALA_INDEX_RAW.fact_index_daily ..... [[32mSUCCESS 1[0m in 2.94s]
+[0m21:23:16.563414 [debug] [Thread-4 (]: Finished running node model.index_dbt.fact_index_daily
+[0m21:23:16.565361 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:23:16.565361 [debug] [MainThread]: Connection 'list_FIVETRAN_DATABASE' was left open.
+[0m21:23:16.566338 [debug] [MainThread]: On list_FIVETRAN_DATABASE: Close
+[0m21:23:16.750082 [debug] [MainThread]: Connection 'list_FIVETRAN_DATABASE_MLDS430_KOALA_INDEX_RAW' was left open.
+[0m21:23:16.751058 [debug] [MainThread]: On list_FIVETRAN_DATABASE_MLDS430_KOALA_INDEX_RAW: Close
+[0m21:23:16.963531 [debug] [MainThread]: Connection 'model.index_dbt.dim_date' was left open.
+[0m21:23:16.964510 [debug] [MainThread]: On model.index_dbt.dim_date: Close
+[0m21:23:17.167620 [debug] [MainThread]: Connection 'model.index_dbt.stg_index_daily' was left open.
+[0m21:23:17.168596 [debug] [MainThread]: On model.index_dbt.stg_index_daily: Close
+[0m21:23:17.372331 [debug] [MainThread]: Connection 'model.index_dbt.fact_index_daily' was left open.
+[0m21:23:17.373308 [debug] [MainThread]: On model.index_dbt.fact_index_daily: Close
+[0m21:23:17.622327 [info ] [MainThread]: 
+[0m21:23:17.624279 [info ] [MainThread]: Finished running 3 table models in 0 hours 0 minutes and 16.77 seconds (16.77s).
+[0m21:23:17.626230 [debug] [MainThread]: Command end result
+[0m21:23:17.654548 [debug] [MainThread]: Wrote artifact WritableManifest to D:\MLDS430-Project-China-Index\index_dbt\target\manifest.json
+[0m21:23:17.658454 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\MLDS430-Project-China-Index\index_dbt\target\semantic_manifest.json
+[0m21:23:17.667243 [debug] [MainThread]: Wrote artifact RunExecutionResult to D:\MLDS430-Project-China-Index\index_dbt\target\run_results.json
+[0m21:23:17.667243 [info ] [MainThread]: 
+[0m21:23:17.668219 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m21:23:17.669197 [info ] [MainThread]: 
+[0m21:23:17.671148 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=3
+[0m21:23:17.673104 [debug] [MainThread]: Command `dbt run` succeeded at 21:23:17.673104 after 20.29 seconds
+[0m21:23:17.674078 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9AAE72860>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9AB1B8CA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C9CEDD0FA0>]}
+[0m21:23:17.674078 [debug] [MainThread]: Flushing usage events
+[0m21:23:18.532905 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:23:39.080514 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D5EC1A2860>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D5ED4D8340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D5ED4D81C0>]}
+
+
+============================== 21:23:39.085394 | 22cc21a2-1ecf-4a76-ae83-31c6b3f4422c ==============================
+[0m21:23:39.085394 [info ] [MainThread]: Running with dbt=1.10.15
+[0m21:23:39.086372 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'write_json': 'True', 'use_colors': 'True', 'no_print': 'None', 'profiles_dir': '.', 'warn_error': 'None', 'static_parser': 'True', 'partial_parse': 'True', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'log_path': 'D:\\MLDS430-Project-China-Index\\index_dbt\\logs', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'indirect_selection': 'eager', 'version_check': 'True', 'use_experimental_parser': 'False', 'quiet': 'False', 'introspect': 'True', 'empty': 'None', 'log_cache_events': 'False', 'debug': 'False', 'log_format': 'default', 'invocation_command': 'dbt test --profiles-dir .', 'cache_selected_only': 'False', 'target_path': 'None'}
+[0m21:23:40.154951 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m21:23:40.155927 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m21:23:40.156904 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m21:23:40.810256 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '22cc21a2-1ecf-4a76-ae83-31c6b3f4422c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D5E93F14E0>]}
+[0m21:23:40.912045 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '22cc21a2-1ecf-4a76-ae83-31c6b3f4422c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D58E3B2A70>]}
+[0m21:23:40.913996 [info ] [MainThread]: Registered adapter: snowflake=1.10.3
+[0m21:23:41.876880 [debug] [MainThread]: checksum: 14a228079bd6df63ba81633f9a3cf44ecfaa31056ac397c602753ec895dbf885, vars: {}, profile: , target: , version: 1.10.15
+[0m21:23:42.109882 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m21:23:42.110861 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m21:23:42.177965 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '22cc21a2-1ecf-4a76-ae83-31c6b3f4422c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D58F8383D0>]}
+[0m21:23:42.306866 [debug] [MainThread]: Wrote artifact WritableManifest to D:\MLDS430-Project-China-Index\index_dbt\target\manifest.json
+[0m21:23:42.310771 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\MLDS430-Project-China-Index\index_dbt\target\semantic_manifest.json
+[0m21:23:42.355691 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '22cc21a2-1ecf-4a76-ae83-31c6b3f4422c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D58F819360>]}
+[0m21:23:42.356665 [info ] [MainThread]: Found 3 models, 8 data tests, 1 source, 494 macros
+[0m21:23:42.357642 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '22cc21a2-1ecf-4a76-ae83-31c6b3f4422c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D5EAB57D60>]}
+[0m21:23:42.359594 [info ] [MainThread]: 
+[0m21:23:42.360569 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m21:23:42.361550 [info ] [MainThread]: 
+[0m21:23:42.362524 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m21:23:42.368382 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_FIVETRAN_DATABASE_MLDS430_KOALA_INDEX_RAW'
+[0m21:23:42.545130 [debug] [ThreadPool]: Using snowflake connection "list_FIVETRAN_DATABASE_MLDS430_KOALA_INDEX_RAW"
+[0m21:23:42.546107 [debug] [ThreadPool]: On list_FIVETRAN_DATABASE_MLDS430_KOALA_INDEX_RAW: show objects in FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "connection_name": "list_FIVETRAN_DATABASE_MLDS430_KOALA_INDEX_RAW"} */;
+[0m21:23:42.547083 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:23:44.641224 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 2.094 seconds
+[0m21:23:44.645130 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '22cc21a2-1ecf-4a76-ae83-31c6b3f4422c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D58F81B4F0>]}
+[0m21:23:44.650015 [debug] [Thread-1 (]: Began running node test.index_dbt.not_null_dim_date_date_key.881d0a31b6
+[0m21:23:44.650992 [debug] [Thread-2 (]: Began running node test.index_dbt.not_null_fact_index_daily_date_key.309d366459
+[0m21:23:44.650992 [debug] [Thread-3 (]: Began running node test.index_dbt.not_null_fact_index_daily_index_code.f6ad2974af
+[0m21:23:44.651965 [debug] [Thread-4 (]: Began running node test.index_dbt.not_null_stg_index_daily_index_code.8d8fa0e9ec
+[0m21:23:44.651965 [info ] [Thread-1 (]: 1 of 8 START test not_null_dim_date_date_key ................................... [RUN]
+[0m21:23:44.652942 [info ] [Thread-2 (]: 2 of 8 START test not_null_fact_index_daily_date_key ........................... [RUN]
+[0m21:23:44.654896 [debug] [Thread-1 (]: Acquiring new snowflake connection 'test.index_dbt.not_null_dim_date_date_key.881d0a31b6'
+[0m21:23:44.653919 [info ] [Thread-3 (]: 3 of 8 START test not_null_fact_index_daily_index_code ......................... [RUN]
+[0m21:23:44.654896 [info ] [Thread-4 (]: 4 of 8 START test not_null_stg_index_daily_index_code .......................... [RUN]
+[0m21:23:44.656849 [debug] [Thread-2 (]: Acquiring new snowflake connection 'test.index_dbt.not_null_fact_index_daily_date_key.309d366459'
+[0m21:23:44.656849 [debug] [Thread-1 (]: Began compiling node test.index_dbt.not_null_dim_date_date_key.881d0a31b6
+[0m21:23:44.658801 [debug] [Thread-3 (]: Acquiring new snowflake connection 'test.index_dbt.not_null_fact_index_daily_index_code.f6ad2974af'
+[0m21:23:44.659778 [debug] [Thread-4 (]: Acquiring new snowflake connection 'test.index_dbt.not_null_stg_index_daily_index_code.8d8fa0e9ec'
+[0m21:23:44.659778 [debug] [Thread-2 (]: Began compiling node test.index_dbt.not_null_fact_index_daily_date_key.309d366459
+[0m21:23:44.679307 [debug] [Thread-1 (]: Writing injected SQL for node "test.index_dbt.not_null_dim_date_date_key.881d0a31b6"
+[0m21:23:44.679307 [debug] [Thread-3 (]: Began compiling node test.index_dbt.not_null_fact_index_daily_index_code.f6ad2974af
+[0m21:23:44.680287 [debug] [Thread-4 (]: Began compiling node test.index_dbt.not_null_stg_index_daily_index_code.8d8fa0e9ec
+[0m21:23:44.685166 [debug] [Thread-2 (]: Writing injected SQL for node "test.index_dbt.not_null_fact_index_daily_date_key.309d366459"
+[0m21:23:44.772664 [debug] [Thread-3 (]: Writing injected SQL for node "test.index_dbt.not_null_fact_index_daily_index_code.f6ad2974af"
+[0m21:23:44.777497 [debug] [Thread-4 (]: Writing injected SQL for node "test.index_dbt.not_null_stg_index_daily_index_code.8d8fa0e9ec"
+[0m21:23:44.778471 [debug] [Thread-1 (]: Began executing node test.index_dbt.not_null_dim_date_date_key.881d0a31b6
+[0m21:23:44.779451 [debug] [Thread-2 (]: Began executing node test.index_dbt.not_null_fact_index_daily_date_key.309d366459
+[0m21:23:44.792142 [debug] [Thread-3 (]: Began executing node test.index_dbt.not_null_fact_index_daily_index_code.f6ad2974af
+[0m21:23:44.804837 [debug] [Thread-4 (]: Began executing node test.index_dbt.not_null_stg_index_daily_index_code.8d8fa0e9ec
+[0m21:23:44.805813 [debug] [Thread-1 (]: Writing runtime sql for node "test.index_dbt.not_null_dim_date_date_key.881d0a31b6"
+[0m21:23:44.808743 [debug] [Thread-2 (]: Writing runtime sql for node "test.index_dbt.not_null_fact_index_daily_date_key.309d366459"
+[0m21:23:44.812650 [debug] [Thread-3 (]: Writing runtime sql for node "test.index_dbt.not_null_fact_index_daily_index_code.f6ad2974af"
+[0m21:23:44.815578 [debug] [Thread-4 (]: Writing runtime sql for node "test.index_dbt.not_null_stg_index_daily_index_code.8d8fa0e9ec"
+[0m21:23:44.819488 [debug] [Thread-1 (]: Using snowflake connection "test.index_dbt.not_null_dim_date_date_key.881d0a31b6"
+[0m21:23:44.820464 [debug] [Thread-2 (]: Using snowflake connection "test.index_dbt.not_null_fact_index_daily_date_key.309d366459"
+[0m21:23:44.821442 [debug] [Thread-3 (]: Using snowflake connection "test.index_dbt.not_null_fact_index_daily_index_code.f6ad2974af"
+[0m21:23:44.822417 [debug] [Thread-1 (]: On test.index_dbt.not_null_dim_date_date_key.881d0a31b6: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select date_key
+from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.dim_date
+where date_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "node_id": "test.index_dbt.not_null_dim_date_date_key.881d0a31b6"} */
+[0m21:23:44.823394 [debug] [Thread-4 (]: Using snowflake connection "test.index_dbt.not_null_stg_index_daily_index_code.8d8fa0e9ec"
+[0m21:23:44.823394 [debug] [Thread-2 (]: On test.index_dbt.not_null_fact_index_daily_date_key.309d366459: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select date_key
+from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.fact_index_daily
+where date_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "node_id": "test.index_dbt.not_null_fact_index_daily_date_key.309d366459"} */
+[0m21:23:44.824370 [debug] [Thread-3 (]: On test.index_dbt.not_null_fact_index_daily_index_code.f6ad2974af: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select index_code
+from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.fact_index_daily
+where index_code is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "node_id": "test.index_dbt.not_null_fact_index_daily_index_code.f6ad2974af"} */
+[0m21:23:44.825347 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m21:23:44.826324 [debug] [Thread-4 (]: On test.index_dbt.not_null_stg_index_daily_index_code.8d8fa0e9ec: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select index_code
+from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.stg_index_daily
+where index_code is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "node_id": "test.index_dbt.not_null_stg_index_daily_index_code.8d8fa0e9ec"} */
+[0m21:23:44.827299 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m21:23:44.828273 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m21:23:44.862451 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m21:23:47.244042 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 2.382 seconds
+[0m21:23:47.253810 [info ] [Thread-4 (]: 4 of 8 PASS not_null_stg_index_daily_index_code ................................ [[32mPASS[0m in 2.60s]
+[0m21:23:47.255763 [debug] [Thread-4 (]: Finished running node test.index_dbt.not_null_stg_index_daily_index_code.8d8fa0e9ec
+[0m21:23:47.256738 [debug] [Thread-4 (]: Began running node test.index_dbt.not_null_stg_index_daily_trade_date.28b4e69eba
+[0m21:23:47.257715 [info ] [Thread-4 (]: 5 of 8 START test not_null_stg_index_daily_trade_date .......................... [RUN]
+[0m21:23:47.258691 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.index_dbt.not_null_stg_index_daily_index_code.8d8fa0e9ec, now test.index_dbt.not_null_stg_index_daily_trade_date.28b4e69eba)
+[0m21:23:47.258691 [debug] [Thread-4 (]: Began compiling node test.index_dbt.not_null_stg_index_daily_trade_date.28b4e69eba
+[0m21:23:47.264550 [debug] [Thread-4 (]: Writing injected SQL for node "test.index_dbt.not_null_stg_index_daily_trade_date.28b4e69eba"
+[0m21:23:47.266503 [debug] [Thread-4 (]: Began executing node test.index_dbt.not_null_stg_index_daily_trade_date.28b4e69eba
+[0m21:23:47.269431 [debug] [Thread-4 (]: Writing runtime sql for node "test.index_dbt.not_null_stg_index_daily_trade_date.28b4e69eba"
+[0m21:23:47.271384 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 2.444 seconds
+[0m21:23:47.274317 [debug] [Thread-4 (]: Using snowflake connection "test.index_dbt.not_null_stg_index_daily_trade_date.28b4e69eba"
+[0m21:23:47.274317 [info ] [Thread-2 (]: 2 of 8 PASS not_null_fact_index_daily_date_key ................................. [[32mPASS[0m in 2.62s]
+[0m21:23:47.275290 [debug] [Thread-4 (]: On test.index_dbt.not_null_stg_index_daily_trade_date.28b4e69eba: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select trade_date
+from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.stg_index_daily
+where trade_date is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "node_id": "test.index_dbt.not_null_stg_index_daily_trade_date.28b4e69eba"} */
+[0m21:23:47.276268 [debug] [Thread-2 (]: Finished running node test.index_dbt.not_null_fact_index_daily_date_key.309d366459
+[0m21:23:47.278219 [debug] [Thread-2 (]: Began running node test.index_dbt.not_null_stg_index_daily_unique_key.db9c92c9fe
+[0m21:23:47.279196 [info ] [Thread-2 (]: 6 of 8 START test not_null_stg_index_daily_unique_key .......................... [RUN]
+[0m21:23:47.280176 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.index_dbt.not_null_fact_index_daily_date_key.309d366459, now test.index_dbt.not_null_stg_index_daily_unique_key.db9c92c9fe)
+[0m21:23:47.281151 [debug] [Thread-2 (]: Began compiling node test.index_dbt.not_null_stg_index_daily_unique_key.db9c92c9fe
+[0m21:23:47.285576 [debug] [Thread-2 (]: Writing injected SQL for node "test.index_dbt.not_null_stg_index_daily_unique_key.db9c92c9fe"
+[0m21:23:47.287527 [debug] [Thread-2 (]: Began executing node test.index_dbt.not_null_stg_index_daily_unique_key.db9c92c9fe
+[0m21:23:47.291433 [debug] [Thread-2 (]: Writing runtime sql for node "test.index_dbt.not_null_stg_index_daily_unique_key.db9c92c9fe"
+[0m21:23:47.292409 [debug] [Thread-2 (]: Using snowflake connection "test.index_dbt.not_null_stg_index_daily_unique_key.db9c92c9fe"
+[0m21:23:47.293385 [debug] [Thread-2 (]: On test.index_dbt.not_null_stg_index_daily_unique_key.db9c92c9fe: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select unique_key
+from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.stg_index_daily
+where unique_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "node_id": "test.index_dbt.not_null_stg_index_daily_unique_key.db9c92c9fe"} */
+[0m21:23:47.346116 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 2.521 seconds
+[0m21:23:47.349046 [info ] [Thread-1 (]: 1 of 8 PASS not_null_dim_date_date_key ......................................... [[32mPASS[0m in 2.69s]
+[0m21:23:47.350023 [debug] [Thread-1 (]: Finished running node test.index_dbt.not_null_dim_date_date_key.881d0a31b6
+[0m21:23:47.351000 [debug] [Thread-1 (]: Began running node test.index_dbt.unique_dim_date_date_key.0869fd48f9
+[0m21:23:47.351000 [info ] [Thread-1 (]: 7 of 8 START test unique_dim_date_date_key ..................................... [RUN]
+[0m21:23:47.351979 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.index_dbt.not_null_dim_date_date_key.881d0a31b6, now test.index_dbt.unique_dim_date_date_key.0869fd48f9)
+[0m21:23:47.352952 [debug] [Thread-1 (]: Began compiling node test.index_dbt.unique_dim_date_date_key.0869fd48f9
+[0m21:23:47.360764 [debug] [Thread-1 (]: Writing injected SQL for node "test.index_dbt.unique_dim_date_date_key.0869fd48f9"
+[0m21:23:47.362717 [debug] [Thread-1 (]: Began executing node test.index_dbt.unique_dim_date_date_key.0869fd48f9
+[0m21:23:47.366623 [debug] [Thread-1 (]: Writing runtime sql for node "test.index_dbt.unique_dim_date_date_key.0869fd48f9"
+[0m21:23:47.368576 [debug] [Thread-1 (]: Using snowflake connection "test.index_dbt.unique_dim_date_date_key.0869fd48f9"
+[0m21:23:47.369555 [debug] [Thread-1 (]: On test.index_dbt.unique_dim_date_date_key.0869fd48f9: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    date_key as unique_field,
+    count(*) as n_records
+
+from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.dim_date
+where date_key is not null
+group by date_key
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "node_id": "test.index_dbt.unique_dim_date_date_key.0869fd48f9"} */
+[0m21:23:47.411139 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.134 seconds
+[0m21:23:47.414071 [info ] [Thread-4 (]: 5 of 8 PASS not_null_stg_index_daily_trade_date ................................ [[32mPASS[0m in 0.16s]
+[0m21:23:47.415046 [debug] [Thread-4 (]: Finished running node test.index_dbt.not_null_stg_index_daily_trade_date.28b4e69eba
+[0m21:23:47.416023 [debug] [Thread-4 (]: Began running node test.index_dbt.unique_stg_index_daily_unique_key.9cad6b5a3a
+[0m21:23:47.416023 [info ] [Thread-4 (]: 8 of 8 START test unique_stg_index_daily_unique_key ............................ [RUN]
+[0m21:23:47.417005 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.index_dbt.not_null_stg_index_daily_trade_date.28b4e69eba, now test.index_dbt.unique_stg_index_daily_unique_key.9cad6b5a3a)
+[0m21:23:47.417975 [debug] [Thread-4 (]: Began compiling node test.index_dbt.unique_stg_index_daily_unique_key.9cad6b5a3a
+[0m21:23:47.422857 [debug] [Thread-4 (]: Writing injected SQL for node "test.index_dbt.unique_stg_index_daily_unique_key.9cad6b5a3a"
+[0m21:23:47.424810 [debug] [Thread-4 (]: Began executing node test.index_dbt.unique_stg_index_daily_unique_key.9cad6b5a3a
+[0m21:23:47.427743 [debug] [Thread-4 (]: Writing runtime sql for node "test.index_dbt.unique_stg_index_daily_unique_key.9cad6b5a3a"
+[0m21:23:47.429695 [debug] [Thread-4 (]: Using snowflake connection "test.index_dbt.unique_stg_index_daily_unique_key.9cad6b5a3a"
+[0m21:23:47.430669 [debug] [Thread-4 (]: On test.index_dbt.unique_stg_index_daily_unique_key.9cad6b5a3a: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    unique_key as unique_field,
+    count(*) as n_records
+
+from FIVETRAN_DATABASE.MLDS430_KOALA_INDEX_RAW.stg_index_daily
+where unique_key is not null
+group by unique_key
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "mlds_430_snowflake", "target_name": "dev", "node_id": "test.index_dbt.unique_stg_index_daily_unique_key.9cad6b5a3a"} */
+[0m21:23:47.435552 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.141 seconds
+[0m21:23:47.437504 [info ] [Thread-2 (]: 6 of 8 PASS not_null_stg_index_daily_unique_key ................................ [[32mPASS[0m in 0.16s]
+[0m21:23:47.438481 [debug] [Thread-2 (]: Finished running node test.index_dbt.not_null_stg_index_daily_unique_key.db9c92c9fe
+[0m21:23:47.527875 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 2.700 seconds
+[0m21:23:47.529828 [info ] [Thread-3 (]: 3 of 8 PASS not_null_fact_index_daily_index_code ............................... [[32mPASS[0m in 2.87s]
+[0m21:23:47.531785 [debug] [Thread-3 (]: Finished running node test.index_dbt.not_null_fact_index_daily_index_code.f6ad2974af
+[0m21:23:47.934100 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.503 seconds
+[0m21:23:47.937072 [info ] [Thread-4 (]: 8 of 8 PASS unique_stg_index_daily_unique_key .................................. [[32mPASS[0m in 0.52s]
+[0m21:23:47.938006 [debug] [Thread-4 (]: Finished running node test.index_dbt.unique_stg_index_daily_unique_key.9cad6b5a3a
+[0m21:23:48.806929 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.437 seconds
+[0m21:23:48.808882 [info ] [Thread-1 (]: 7 of 8 PASS unique_dim_date_date_key ........................................... [[32mPASS[0m in 1.46s]
+[0m21:23:48.810835 [debug] [Thread-1 (]: Finished running node test.index_dbt.unique_dim_date_date_key.0869fd48f9
+[0m21:23:48.811815 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:23:48.812789 [debug] [MainThread]: Connection 'list_FIVETRAN_DATABASE_MLDS430_KOALA_INDEX_RAW' was left open.
+[0m21:23:48.813766 [debug] [MainThread]: On list_FIVETRAN_DATABASE_MLDS430_KOALA_INDEX_RAW: Close
+[0m21:23:48.992059 [debug] [MainThread]: Connection 'test.index_dbt.unique_dim_date_date_key.0869fd48f9' was left open.
+[0m21:23:48.992059 [debug] [MainThread]: On test.index_dbt.unique_dim_date_date_key.0869fd48f9: Close
+[0m21:23:49.207865 [debug] [MainThread]: Connection 'test.index_dbt.not_null_stg_index_daily_unique_key.db9c92c9fe' was left open.
+[0m21:23:49.208842 [debug] [MainThread]: On test.index_dbt.not_null_stg_index_daily_unique_key.db9c92c9fe: Close
+[0m21:23:49.368013 [debug] [MainThread]: Connection 'test.index_dbt.not_null_fact_index_daily_index_code.f6ad2974af' was left open.
+[0m21:23:49.368990 [debug] [MainThread]: On test.index_dbt.not_null_fact_index_daily_index_code.f6ad2974af: Close
+[0m21:23:49.547217 [debug] [MainThread]: Connection 'test.index_dbt.unique_stg_index_daily_unique_key.9cad6b5a3a' was left open.
+[0m21:23:49.548193 [debug] [MainThread]: On test.index_dbt.unique_stg_index_daily_unique_key.9cad6b5a3a: Close
+[0m21:23:49.722339 [info ] [MainThread]: 
+[0m21:23:49.723314 [info ] [MainThread]: Finished running 8 data tests in 0 hours 0 minutes and 7.36 seconds (7.36s).
+[0m21:23:49.726244 [debug] [MainThread]: Command end result
+[0m21:23:49.754674 [debug] [MainThread]: Wrote artifact WritableManifest to D:\MLDS430-Project-China-Index\index_dbt\target\manifest.json
+[0m21:23:49.759553 [debug] [MainThread]: Wrote artifact SemanticManifest to D:\MLDS430-Project-China-Index\index_dbt\target\semantic_manifest.json
+[0m21:23:49.768907 [debug] [MainThread]: Wrote artifact RunExecutionResult to D:\MLDS430-Project-China-Index\index_dbt\target\run_results.json
+[0m21:23:49.768907 [info ] [MainThread]: 
+[0m21:23:49.769888 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m21:23:49.771730 [info ] [MainThread]: 
+[0m21:23:49.772707 [info ] [MainThread]: Done. PASS=8 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=8
+[0m21:23:49.774657 [debug] [MainThread]: Command `dbt test` succeeded at 21:23:49.774657 after 10.82 seconds
+[0m21:23:49.775634 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D5EC1A2860>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D5901597B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D590207C70>]}
+[0m21:23:49.776610 [debug] [MainThread]: Flushing usage events
+[0m21:23:50.607627 [debug] [MainThread]: An error was encountered while trying to flush usage events

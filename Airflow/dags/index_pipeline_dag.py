@@ -42,7 +42,7 @@ with DAG(
     dag_id="index_etl_pipeline",
     default_args=default_args,
     start_date=datetime(2024, 1, 1),
-    schedule="@daily",          # ✅ Use schedule instead of schedule_interval in newer versions
+    schedule="@daily",
     catchup=False,
     description="Daily index ETL: Fivetran (S3 -> Snowflake) -> dbt (stg/dim/fact).",
     tags=["index", "etl"],
@@ -77,3 +77,4 @@ with DAG(
 
     # Dependencies: Fivetran sync -> dbt run -> dbt test
     sync_fivetran >> dbt_run >> dbt_test
+
